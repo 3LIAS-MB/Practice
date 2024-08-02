@@ -17,14 +17,14 @@ function usePokemons() {
       fetch("https://pokeapi.co/api/v2/pokemon")
         .then((res) => res.json())
         .then((response) => {
-          setPokemons(response);
+          setPokemons(response); 
         });
     }, []);
   
     return { pokemons };
   }
 
-export function PokeCards() {
+export function Pokemons() {
     const { pokemons } = usePokemons();
     // console.log('XDXDXDXDXDXD')
     // console.log(pokemons.url)
