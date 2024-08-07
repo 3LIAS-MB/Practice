@@ -28,7 +28,8 @@ export function Pokemons() {
     const { pokemons } = usePokemons();
     // console.log('XDXDXDXDXDXD')
     // console.log(pokemons.url)
-
+    console.log()
+    
     return (
       <>
         <h2>HOLA MUNDO</h2>
