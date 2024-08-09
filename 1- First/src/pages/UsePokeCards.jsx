@@ -10,4 +10,3 @@ export function UsePokeCards() {
   );
 }
 
-export default UsePokeCards;
