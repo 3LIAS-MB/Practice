@@ -1,4 +1,4 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
 
 export function Navbar() {
@@ -7,12 +7,21 @@ export function Navbar() {
       <ul>
         <li>
           <NavLink
-            className={({ isActive }) => (isActive ? "active" : "blue")}
+            // className={({ isActive }) => (isActive ? "active" : "blue")}
             to="/"
           >
             Home
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            // className={}
+            to="/Pokemons"
+          >
+            Pokemons
+          </NavLink>
+        </li>
+        
       </ul>
     </div>
   );

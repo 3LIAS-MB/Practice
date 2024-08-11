@@ -13,15 +13,7 @@ function useNames() {
     fetchNames();
   }, []);
 
-  // useEffect(() => {
-  //   fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       setPokemons(response);
-  //     });
-  // }, [name]);
-
-  return names;
+  return { names };
 }
 
 function usePokemons(name) {
@@ -39,13 +31,13 @@ function usePokemons(name) {
     }
   }, [name]);
 
-  return pokemon;
+  return { pokemon };
 }
 
 export function Pokemons() {
-  const names = useNames();
+  const { names } = useNames();
   const [selectedName, setSelectedName] = useState(null);
-  const pokemon = usePokemons(selectedName);
+  const { pokemon } = usePokemons(selectedName);
 
   return (
     <div>
