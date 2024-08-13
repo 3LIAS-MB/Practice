@@ -1,63 +1,47 @@
-import { useEffect, useState } from "react";
-
-function useNames() {
-  const [names, setNames] = useState([]);
-
-  useEffect(() => {
-    async function fetchNames() {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-      const data = await response.json();
-      setNames(data.results);
-    }
-
-    fetchNames();
-  }, []);
-
-  return { names };
-}
-
-function usePokemons(name) {
-  const [pokemon, setPokemon] = useState(null);
-
-  useEffect(() => {
-    async function fetchPokemon() {
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-      const data = await response.json();
-      setPokemon(data);
-    }
-
-    if (name) {
-      fetchPokemon();
-    }
-  }, [name]);
-
-  return { pokemon };
-}
+// import { useState } from "react";
+import { usePokeAPI } from "../services/pokemons";
 
 export function Pokemons() {
-  const { names } = useNames();
-  const [selectedName, setSelectedName] = useState(null);
-  const { pokemon } = usePokemons(selectedName);
+  // const [selectedName, setSelectedName] = useState();
+  // const { pokemon } = usePokemons(selectedName);
+  
+  const { pokeAPI } = usePokeAPI();
+  // const { names } = useNames()
+
+  // console.log('KAKAKAKAK')
+  // console.log(names)
 
   return (
-    <div>
-      <h1>Pokémon List</h1>
-      <ul>
-        {names.map((poke) => (
-          <li key={poke.name} onClick={() => setSelectedName(poke.name)}>
-            {poke.name}
-          </li>
-        ))}
-      </ul>
-      {pokemon && (
-        <div>
-          <h2>{pokemon.name}</h2>
-          <img
-            src={pokemon.sprites.other["official-artwork"].front_default}
-            alt={pokemon.name}
-          />
+    // <div>
+    //   <h1>Pokemón</h1>
+    //   <ul>
+    //     {pokeAPI.map((poke) => (
+    //       <li key={poke.name} onClick={() => setSelectedName(poke.name)}>
+    //         {poke.name}
+    //       </li>
+    //     ))}
+    //   </ul>
+    //   {pokemon && (
+    //     <div>
+    //       <h2>{pokemon.name}</h2>
+    //       <img
+    //         src={pokemon.sprites.other["official-artwork"].front_default}
+    //         alt={pokemon.name}
+    //       />
+    //     </div>
+    //   )}
+    // </div>
+    <>
+      <h1>Pokémones</h1>
+      {pokeAPI.map((pokemones, index) => (
+        <div key={index}>
+          <h1>{pokemones.name} {index}</h1>
+          <p>{pokemones.url}</p>
+          <p>{pokemones[index].name}</p>
+          {/* <img src={pokemones[index].name}/> */}
         </div>
-      )}
-    </div>
+      ))}
+
+    </>
   );
 }
