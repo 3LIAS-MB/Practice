@@ -6,7 +6,7 @@ export function usePokeAPI() {
 
   useEffect(() => {
     async function fetchNames() {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100");
       const data = await response.json();
       setPokeAPI(data.results);
     }
@@ -17,36 +17,21 @@ export function usePokeAPI() {
   return { pokeAPI };
 }
 
-// export function usePokemons(name) {
-//   const [pokemon, setPokemon] = useState(null);
-
-//   useEffect(() => {
-//     async function fetchPokemon() {
-//       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-//       const data = await response.json();
-//       setPokemon(data);
-//     }
-
-//     if (name) {
-//       fetchPokemon();
-//     }
-//   }, [name]);
-
-//   return { pokemon };
-// }  
-
-export function useNames() {
-  const [names, setNames] = useState(null)
+export function usePokemons(name) {
+  const [pokemon, setPokemon] = useState(null);
 
   useEffect(() => {
-    async function fetchNames() {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-      const data = await response.json()
-      setNames(data.results)
+    async function fetchPokemon() {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+      const data = await response.json();
+      setPokemon(data);
     }
 
-    fetchNames()
-  }, [])
+    if (name) {
+      fetchPokemon();
+    }
+  }, [name]);
 
-  return { names }
+  return { pokemon };
 }
+

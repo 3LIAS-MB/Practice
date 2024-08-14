@@ -3,6 +3,7 @@ import { UsePokeCards } from './pages/UsePokeCards.jsx'
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { Navbar } from "./components/Navbar.jsx"
+// import { Card } from '.'
 
 function App() {
 
@@ -14,7 +15,9 @@ function App() {
       <Routes>
         <Route path='/' element={<h1>Home</h1>}/>
         <Route path='/pokemons' element={<Pokemons/>}/>
-        <Route path='/pokemons/:id' element={<UsePokeCards/>}/>
+        <Route path='/pokemons/:id' element={<UsePokeCards/>}>
+          {/* <Route path="/:id"/ element={<Card/>}/> */}
+        </Route>
         {/* <Route path="*" element={<NotFoundPage/>}/> */}
       </Routes>
     </Router>
