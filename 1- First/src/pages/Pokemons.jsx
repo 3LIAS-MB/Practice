@@ -1,6 +1,8 @@
-import { usePokeAPI, usePokemons } from "../services/pokemons";
-import "../css/pokemonsCards.css";
 import PropTypes from "prop-types";
+
+import { usePokeAPI, usePokemons } from "../services/pokemons";
+import { useNavigate } from "react-router-dom";
+import "../css/pokemonsCards.css";
 
 export function PokeImage({ pokemones }) {
   const { pokemon } = usePokemons(pokemones.name);
@@ -22,6 +24,11 @@ export function PokeImage({ pokemones }) {
 
 export function Pokemons() {
   const { pokeAPI } = usePokeAPI();
+  const navigate = useNavigate();
+
+  const handleClick = (name) => {
+    navigate(`/pokemons/${name}`);
+  };
 
   return (
     <>
@@ -38,7 +45,13 @@ export function Pokemons() {
         </div>
         <div className="pokemon-grid">
           {pokeAPI.map((pokemon, index) => (
-            <div key={index} className="pokemon-card">
+            <div
+              key={index}
+              className="pokemon-card"
+              onClick={() => {
+                handleClick(pokemon.name);
+              }}
+            >
               <h3>
                 {pokemon.name} {index}
               </h3>

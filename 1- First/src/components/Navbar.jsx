@@ -16,7 +16,7 @@ export function Navbar() {
         <li>
           <NavLink
             // className={}
-            to="/Pokemons"
+            to="/pokemons"
           >
             Pokemons
           </NavLink>
