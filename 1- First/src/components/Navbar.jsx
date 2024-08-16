@@ -21,7 +21,11 @@ export function Navbar() {
             Pokemons
           </NavLink>
         </li>
-        
+        <li>
+          <NavLink to="/about">
+            About
+          </NavLink>
+        </li>
       </ul>
     </div>
   );
