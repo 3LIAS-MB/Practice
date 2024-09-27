@@ -6,10 +6,6 @@ import { Navbar } from "./components/Navbar.jsx"
 
 function App() {
 
-  // este es un comentario para decirte que sos un pajero
-  // SOS RE PAJERO 5/9/8
-  // DEDICALE MAS TIEMPO GATO
-
   return (
     <Router>
       <Navbar/>

@@ -13,7 +13,7 @@ export function PokeCards() {
           <h2 className="pokeCard-title">{name}</h2>
           <img
             className="pokeCard-img"
-            src={pokemon.sprites.other["official-artwork"].front_default}
+            src={pokemon.sprites.other["official-artwork"].front_dyefault}
             alt={pokemon.name}
           />
           <div>

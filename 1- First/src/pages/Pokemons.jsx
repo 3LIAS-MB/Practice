@@ -43,6 +43,7 @@ export function Pokemons() {
         <div className="pokemon-search">
           <input className="pokemon-search-input" type="text" />
         </div>
+        
         <div className="pokemon-grid">
           {pokeAPI.map((pokemon, index) => (
             <div
