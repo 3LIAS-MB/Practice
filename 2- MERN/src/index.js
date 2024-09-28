@@ -1,4 +1,10 @@
-import app from './app.js'
+import app from "./app.js";
 
-app.listen(3000)
-console.log('Server on port http://localhost:3000')
+// pool.query("SELECT NOW()", (err, res) => {
+//   console.log(err, res.rows);
+//   pool.end();
+// });
+
+
+app.listen(3000);
+console.log("Server on port http://localhost:3000");

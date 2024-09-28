@@ -7,6 +7,9 @@ GET http://localhost:3000/api/tasks/1
 ### CREAR UNA TAREA
 POST http://localhost:3000/api/tasks
 
+{
+    title: "abc"
+}
 ### MODIFICAR UNA TAREA
 PUT http://localhost:3000/api/tasks/1
 
