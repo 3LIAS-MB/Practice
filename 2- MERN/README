@@ -18,6 +18,8 @@
 // ->
 // npm i bcrypt.js
 
+// npm create vite
+
 // MODULOS DE DESARROLLO
 // npm install nodemon
 // npm install eslint
