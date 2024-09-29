@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/tasks
 
 ### TAREA EN ESPECIFICO
-GET http://localhost:3000/api/tasks/121
+GET http://localhost:3000/api/tasks/1
 
 ### CREAR UNA TAREA
 POST http://localhost:3000/api/tasks
@@ -14,7 +14,12 @@ Content-Type: application/json
 }
 
 ### MODIFICAR UNA TAREA
-PUT http://localhost:3000/api/tasks/1
+PUT http://localhost:3000/api/tasks/120
+Content-Type: application/json
 
+{
+    "title": "elias sos pro",
+    "description": "dale pete"
+}
 ### BORRAR UNA TAREA
-DELETE http://localhost:3000/api/tasks/1
+DELETE http://localhost:3000/api/tasks/10

@@ -1,9 +1,18 @@
-// para escribir la logica cuando llegan a una ruta
-export const signin = (req, res) => res.send('ingresando')
+import { pool } from "../db.js";
 
-export const signup = (req, res) => res.send('registrando')
+export const signin = (req, res) => res.send("ingresando");
 
-export const signut = (req, res) => res.send("cerrando sesion ")
+export const signup = async (req, res) => {
+  const { name, email, password } = req.body;
 
-export const profile = (req, res) => res.send("perfil de usuario")
+  const result = await pool.query(
+    "INSERT INTO users(name, email, password) VALUES($1, $2, $3)",
+    [name, email, password]
+  );
+  console.log(result)
+  return res.send("registrando");
+};
 
+export const signut = (req, res) => res.send("cerrando sesion ");
+
+export const profile = (req, res) => res.send("perfil de usuario");

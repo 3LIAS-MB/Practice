@@ -1,10 +1,17 @@
 ### INICIAR SESION
 POST http://localhost:3000/api/signing
 
-### CERRAR SESIÓN
-POST http://localhost:3000/api/signup
-
 ### REGISTRARSE
+POST http://localhost:3000/api/signup
+Content-Type: application/json
+
+{
+    "name": "fazttt",
+    "email": "fazttt@gmail.com",
+    "password": "fazttt123"
+}
+
+### CERRAR SESIÓN
 POST http://localhost:3000/api/signout
 
 ### PERFIL DE USUARIO

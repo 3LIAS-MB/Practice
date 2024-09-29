@@ -1,5 +1,6 @@
-// Para que tengamos todas las rutas relacionadas a la autenticacion
-import { Router } from "express";
+// import { Router } from "express";
+import Router from "express-promise-router";
+
 import { profile, signin, signup, signut } from "../controller/auth.controller.js";
 
 const router = Router();

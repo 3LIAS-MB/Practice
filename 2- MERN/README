@@ -18,3 +18,47 @@
 // MODULOS DE DESARROLLO
 // npm install nodemon
 // npm install eslint
+
+
+
+// Código del Proyecto:
+// https://github.com/fazt/pern-tasks
+
+// Indice del Contenido
+// 00:00 Introducción
+// 04:40 Vista General
+// 10:42 Backend Setup
+// 21:04 Express Server
+// 30:03 Backend Routes
+// 43:06 Controllers
+// 49:52 Bases de Datos Crear Tarea
+// 01:13:52 Obtener tareas
+// 01:21:43 Obtener una tarea
+// 01:27:58 Eliminar Tarea
+// 01:33:28 Actualizar Tarea
+// 01:38:12 Registro de Usuario
+// 01:53:47 JSON Web Token
+// 02:01:24 Cookies
+// 02:21:00 Login
+// 02:34:12 Relacion de Usuarios y tareas
+// 02:47:21 Frontend Setup
+// 02:58:44 TailwindCSS
+// 03:03:14 Register Form
+// 03:27:51 POST Register
+// 03:42:07 Formulario de Login
+// 03:54:33 POST Login
+// 03:59:21 AuthContext
+// 04:09:56 Login y Registro
+// 04:22:53 Backend Errors
+// 04:48:18 Frontend Errors
+// 05:10:48 Navbar
+// 05:31:42 Protected Route
+// 05:52:39 Formulario de Tareas
+// 06:04:28 Lista de tareas
+// 06:14:05 Eliminar Tarea
+// 06:23:46 Task Context
+// 06:40:56 Editar Tarea
+// 06:58:22 Actualizar Tarea
+// 07:09:37 Mejorando UI
+// 07:42:43 Configuracion para Producción
+// 08:00:14 Despliegue en Railway
