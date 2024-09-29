@@ -1,14 +1,19 @@
 import express from "express";
 import morgan from "morgan";
+import cookieParser from 'cookie-parser'
 
 import taskRoutes from "./routes/task.routes.js" 
 import authRoutes from './routes/auth.routes.js'
 
 const app = express();
 
-// Middleware
+// Nos ayuda a ver por consola las peticiones que van llegando
 app.use(morgan("dev"));
+// Para listar las cookies del header en un objeto
+app.use(cookieParser())
+// Si llega un objeto en formato json lo convierte en un objeto js
 app.use(express.json());
+// para cuando enviamos formularios desde el front
 app.use(express.urlencoded({ extended: false }));
 
 // Routes

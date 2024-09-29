@@ -1,6 +1,7 @@
 // npm init -y
 // npm install express
-// -> Para poder leer las cookies a traves de objetos de JavaScript
+// -> Para poder leer las cookies a traves de objetos de JavaScript.
+// Convierte la cabecera en una cookie
 // npm cookie-parser
 // -> comunicar que frontend pueden tener comunicación con nuestro servidor
 // npm install cors

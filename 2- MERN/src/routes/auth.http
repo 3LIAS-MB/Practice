@@ -1,14 +1,20 @@
 ### INICIAR SESION
 POST http://localhost:3000/api/signing
+Content-Type: application/json
+
+{
+    "email": "isabel@gmail.com",
+    "password": "isabel123"
+}
 
 ### REGISTRARSE
 POST http://localhost:3000/api/signup
 Content-Type: application/json
 
 {
-    "name": "karuxxxxxxx",
-    "email": "karuxxxxxxx123@gmail.com",
-    "password": "karuxxxxxxx123"
+    "name": "marcosss",
+    "email": "marcos12345@gmail.com",
+    "password": "marcos12345"
 }
 
 ### CERRAR SESIÓN
@@ -16,5 +22,13 @@ POST http://localhost:3000/api/signout
 
 ### PERFIL DE USUARIO
 GET http://localhost:3000/api/profile
+Content-Type: application/json
+
+{
+    "name": "marcoss",
+    "email": "marcos1234@gmail.com",
+    "password": "marcos1234"
+}
+
 
 
