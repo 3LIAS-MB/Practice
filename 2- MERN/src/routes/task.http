@@ -9,8 +9,8 @@ POST http://localhost:3000/api/tasks
 Content-Type: application/json
 
 {
-    "title": "my task 5",
-    "description": "my task description 5"
+    "title": "my task 6",
+    "description": "my task description 6"
 }
 
 ### MODIFICAR UNA TAREA

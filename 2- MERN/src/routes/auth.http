@@ -6,9 +6,9 @@ POST http://localhost:3000/api/signup
 Content-Type: application/json
 
 {
-    "name": "fazttt",
-    "email": "fazttt@gmail.com",
-    "password": "fazttt123"
+    "name": "karuxxxxxxx",
+    "email": "karuxxxxxxx123@gmail.com",
+    "password": "karuxxxxxxx123"
 }
 
 ### CERRAR SESIÓN

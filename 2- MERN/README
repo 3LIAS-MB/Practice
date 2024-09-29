@@ -14,6 +14,8 @@
 // npm install jsonwebtoken
 // -> Es la forma de tener distintas rutas en el backend. Nos ayuda a manejar errores 
 // npm install express-promise-router
+// ->
+// npm i bcrypt.js
 
 // MODULOS DE DESARROLLO
 // npm install nodemon
