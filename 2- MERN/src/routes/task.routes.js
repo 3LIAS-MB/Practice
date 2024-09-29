@@ -1,4 +1,7 @@
-import { Router } from "express";
+// import { Router } from "express";
+// Nos ayuda a simplificar los errores try catch
+import Router from "express-promise-router";
+
 import {
   createTask,
   deleteTask,
