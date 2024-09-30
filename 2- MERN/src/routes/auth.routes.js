@@ -6,7 +6,7 @@ import { profile, signin, signup, signout } from "../controller/auth.controller.
 
 const router = Router();
 
-router.post('/signing', signin)
+router.post('/signin', signin)
 
 router.post("/signup", signup)
 

@@ -13,6 +13,7 @@ const app = express();
 app.use(
   cors({
     origin: "http://localhost:5173",
+    credentials: true
   })
 );
 // Nos ayuda a ver por consola las peticiones que van llegando

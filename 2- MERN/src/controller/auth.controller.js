@@ -31,8 +31,12 @@ export const signin = async (req, res) => {
   const token = await createAccessToken({ id: result.rows[0].id });
 
   res.cookie("token", token, {
-    httpOnly: true,
+    // httpOnly: true,
+    // para que se puedan ver las cookies en el navegador
+    pecure: true,
+    // para decir que entre dominios se pueden consultar
     sameSite: "none",
+    // tiempo que dura la cookie
     maxAge: 24 * 60 * 60 * 1000,
   });
 
@@ -57,8 +61,8 @@ export const signup = async (req, res, next) => {
 
     // enviamos el token a través de la cookie o cabecera
     res.cookie("token", token, {
-      httpOnly: true,
-      // secure
+      // httpOnly: true,
+      secure: true,
       sameSite: "none",
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });

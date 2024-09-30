@@ -1,5 +1,5 @@
 ### INICIAR SESION
-POST http://localhost:3000/api/signing
+POST http://localhost:3000/api/signin
 Content-Type: application/json
 
 {
