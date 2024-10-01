@@ -3,8 +3,8 @@
 // import { Button } from '../components/ui/Button'
 import { Button, Card, Input, Label } from "../components/ui/index";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContex";
 
 function RegisterPage() {
   // 'useForm()' nos provee una forma de encontrar los inputs
@@ -18,25 +18,13 @@ function RegisterPage() {
     formState: { errors },
   } = useForm();
 
+  const { signup } = useAuth();
+  const navigate = useNavigate()
+
   // 'data' -> {name: 'nuwa1', email: 'nuwa1234@gmail.com', password: '1234'}
   const onSubmit = handleSubmit(async (data) => {
-    // const response = await fetch("http://localhost:3000/api/signup", {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   credentials: "include",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Access-Control-Allow-Credentials": true,
-    //   },
-    // });
-
-    // const dataSignup = await response.json();
-
-    const res = await axios.post("http://localhost:3000/api/signup", data, {
-      withCredentials: true,
-    });
-
-    console.log(res);
+    await signup(data);
+    navigate('/profile')
   });
 
   return (

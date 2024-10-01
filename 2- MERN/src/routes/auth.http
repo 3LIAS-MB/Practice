@@ -3,8 +3,8 @@ POST http://localhost:3000/api/signin
 Content-Type: application/json
 
 {
-    "email": "isabel@gmail.com",
-    "password": "isabel123"
+    "email": "fazt101@gmail.com",
+    "password": "fazt101"
 }
 
 ### REGISTRARSE
@@ -12,9 +12,9 @@ POST http://localhost:3000/api/signup
 Content-Type: application/json
 
 {
-    "name": "marcosss",
-    "email": "marcos12345@gmail.com",
-    "password": "marcos12345"
+    "name": "fazt101",
+    "email": "fazt101@gmail.com",
+    "password": "fazt101"
 }
 
 ### CERRAR SESIÓN
