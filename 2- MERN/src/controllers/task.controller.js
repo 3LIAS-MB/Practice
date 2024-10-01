@@ -1,7 +1,9 @@
 import { pool } from "../db.js";
 
 export const getAllTasks = async (req, res, next) => {
-  const result = await pool.query("SELECT * FROM task WHERE user_id = $1", [req.userId]);
+  const result = await pool.query("SELECT * FROM task WHERE user_id = $1", [
+    req.userId,
+  ]);
   return res.json(result.rows);
 };
 
@@ -30,7 +32,7 @@ export const createTask = async (req, res, next) => {
 
     res.json(result.rows[0]);
   } catch (error) {
-    if (error.code == "23505") {
+    if (error.code === "23505") {
       return res.status(409).json({
         messsage: "Ya existe una tarea con ese titulo",
       });
@@ -55,6 +57,7 @@ export const updateTask = async (req, res) => {
       messsage: "No existe tarea con esa id",
     });
   }
+  return res.json(result.rows[0]);
 };
 
 export const deleteTask = async (req, res) => {

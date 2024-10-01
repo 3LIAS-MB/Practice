@@ -9,17 +9,18 @@ POST http://localhost:3000/api/tasks
 Content-Type: application/json
 
 {
-    "title": "mi titulo de tarea222",
-    "description": "asdasd"
+    "title": "nuwa10xdxd",
+    "description": "xdasdasd"
 }
 
-### MODIFICAR UNA TAREA
-PUT http://localhost:3000/api/tasks/120
+### MODIFICAR/ACTUALIZAR UNA TAREA
+PUT http://localhost:3000/api/tasks/56
 Content-Type: application/json
 
 {
     "title": "elias sos pro",
     "description": "dale pete"
 }
+
 ### BORRAR UNA TAREA
-DELETE http://localhost:3000/api/tasks/10
+DELETE http://localhost:3000/api/tasks/55

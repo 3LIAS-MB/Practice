@@ -10,8 +10,8 @@ export const createTaskSchema = z.object({
     .max(255),
   description: z
     .string({
-      required_error: "La descripción es requerida",
-      invalid_type_error: "La descripción debe ser un texto",
+      required_error: "La descripcion es requerida",
+      invalid_type_error: "La descripcion debe ser un texto",
     })
     .min(1)
     .max(255)
@@ -31,8 +31,8 @@ export const updateTaskSchema = z.object({
     .optional(),
   description: z
     .string({
-      required_error: "La descripción es requerida",
-      invalid_type_error: "La descripción debe ser un texto",
+      required_error: "La descripcion es requerida",
+      invalid_type_error: "La descripcion debe ser un texto",
     })
     .min(1)
     .max(255)

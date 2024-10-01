@@ -34,6 +34,7 @@ export const signin = async (req, res) => {
     // httpOnly: true,
     // para que se puedan ver las cookies en el navegador
     pecure: true,
+    secure: true,
     // para decir que entre dominios se pueden consultar
     sameSite: "none",
     // tiempo que dura la cookie
@@ -62,7 +63,7 @@ export const signup = async (req, res, next) => {
     // enviamos el token a través de la cookie o cabecera
     res.cookie("token", token, {
       // httpOnly: true,
-      // secure: true,
+      secure: true,
       sameSite: "none",
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
