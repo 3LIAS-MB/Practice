@@ -1,7 +1,7 @@
 // import { Input } from "../components/ui/Input";
 // import { Card } from "../components/ui/Card";
 // import { Button } from '../components/ui/Button'
-import { Button, Card, Input, Label } from "../components/ui/index";
+import { Button, Card, Input, Label, Container } from "../components/ui/index";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContex";
@@ -31,7 +31,7 @@ function RegisterPage() {
   });
 
   return (
-    <div className="h-[calc(100vh-64px)] flex items-center justify-center">
+    <Container className="h-[calc(100vh-10rem)] flex items-center justify-center">
       <Card>
       {signupErrors &&
           signupErrors.map((err) => (
@@ -85,7 +85,7 @@ function RegisterPage() {
           </div>
         </form>
       </Card>
-    </div>
+    </Container>
   );
 }
 

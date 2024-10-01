@@ -74,8 +74,8 @@ export function AuthProvider({ children }) {
           setIsAuth(true);
         })
         .catch((err) => {
-          console.log(err)
-          setUser(null)
+          console.log(err);
+          setUser(null);
           setIsAuth(false);
         });
     }
