@@ -64,6 +64,12 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const signout = async () => {
+    await axios.post('/signout')
+    setUser(null);
+    setIsAuth(false);
+  }
+
   useEffect(() => {
     if (Cookie.get("token")) {
       // get profile
@@ -83,7 +89,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user: user, isAuth, errors, signup, signin }}
+      value={{ user: user, isAuth, errors, signup, signin, signout }}
     >
       {children}
     </AuthContext.Provider>
