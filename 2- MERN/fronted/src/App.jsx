@@ -1,5 +1,7 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
+
 import { useAuth } from "./context/AuthContex";
+import { TaskProvider } from "./context/TaskContext";
 
 import Navbar from "./components/navbar/Navbar";
 import { Container } from "./components/ui";
@@ -15,8 +17,9 @@ import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
 
 function App() {
-  const { isAuth } = useAuth();
-  console.log(isAuth);
+  const { isAuth, loading } = useAuth();
+  console.log(loading)
+  if (loading) return <h1>Cargando...</h1>;
 
   return (
     <>
@@ -24,6 +27,7 @@ function App() {
 
       <Container className="py-5">
         <Routes>
+          {/* Las rutas dentro de un componente no se llaman children, son outles */}
           <Route
             element={<ProtectedRoute isAllowed={!isAuth} redirectTo="/tasks" />}
           >
@@ -36,12 +40,23 @@ function App() {
           <Route
             element={<ProtectedRoute isAllowed={isAuth} redirectTo="/login" />}
           >
-            {/* Las rutas dentro de un componente no se llaman children, son outles */}
-            <Route path="/tasks" element={<TasksPage />} />
-            <Route path="/tasks/new" element={<TaskFormPage />} />
-            <Route path="/tasks/1/edit" element={<TaskFormPage />} />
+            {/* Todas las rutas estan dentro de otro componente que es el 
+            TaskProvider y cada una de ellas se representa por un 'Outlet' */}
+            <Route
+              element={
+                <TaskProvider>
+                  <Outlet />
+                </TaskProvider>
+              }
+            >
+              <Route path="/tasks" element={<TasksPage />} />
+              <Route path="/tasks/new" element={<TaskFormPage />} />
+              <Route path="/tasks/:id/edit" element={<TaskFormPage />} />
+            </Route>
+
             <Route path="/profile" element={<ProfilePage />} />
           </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
