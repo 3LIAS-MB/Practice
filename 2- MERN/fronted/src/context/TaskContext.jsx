@@ -3,6 +3,7 @@ import {
   getAllTaskRequest,
   deleteTaskRequest,
   createTaskRequest,
+  getTaskRequest
 } from "../api/tasks.api";
 
 const TaskContext = createContext();
@@ -25,6 +26,11 @@ export function TaskProvider({ children }) {
     setTasks(res.data);
   };
 
+  const loadTask = async id => {
+    const res = await getTaskRequest(id)
+    return res.data
+  }
+
   const deleteTasks = async (id) => {
     const res = await deleteTaskRequest(id);
     if (res.status === 204) {
@@ -45,7 +51,7 @@ export function TaskProvider({ children }) {
   };
 
   return (
-    <TaskContext.Provider value={{ tasks, loadTasks, deleteTasks, createTask }}>
+    <TaskContext.Provider value={{ tasks, loadTasks, loadTask, deleteTasks, createTask, errors }}>
       {children}
     </TaskContext.Provider>
   );

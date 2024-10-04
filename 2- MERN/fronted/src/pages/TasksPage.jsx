@@ -4,7 +4,6 @@ import { useTasks } from "../context/TaskContext";
 
 function TaskPage() {
   const { tasks, loadTasks } = useTasks();
-  console.log(tasks);
 
   useEffect(() => {
     loadTasks()

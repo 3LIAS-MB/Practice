@@ -18,7 +18,6 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   const { isAuth, loading } = useAuth();
-  console.log(loading)
   if (loading) return <h1>Cargando...</h1>;
 
   return (
