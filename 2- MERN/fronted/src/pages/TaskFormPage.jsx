@@ -14,11 +14,18 @@ function TaskFormPage() {
   } = useForm();
 
   const navigate = useNavigate();
-  const { createTask, loadTask, errors: tasksErrors } = useTasks();
+  const { createTask, updateTask, loadTask, errors: tasksErrors } = useTasks();
   const params = useParams();
 
   const onSubmit = handleSubmit(async (data) => {
-    const task = await createTask(data);
+    let task;
+
+    if (!params.id) {
+      task = await createTask(data);
+    } else {
+      task = await updateTask(params.id, data)
+    }
+
     if (task) {
       navigate("/tasks");
     }

@@ -4,23 +4,27 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContex";
 
 function LoginPage() {
-  const { register, handleSubmit } = useForm();
-  const { signin, errors } = useAuth();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { signin, errors: loginErrors } = useAuth();
   const navigate = useNavigate();
 
   const onSubmit = handleSubmit(async (data) => {
     const user = await signin(data);
 
     if (user) {
-      navigate("/profile");
+      navigate("/tasks");
     }
   });
 
   return (
     <Container className="h-[calc(100vh-10rem)] flex  justify-center items-center">
       <Card>
-        {errors &&
-          errors.map((err) => (
+        {loginErrors &&
+          loginErrors.map((err) => (
             <p className="text-red-500 text-center">{err}</p>
           ))}
 
@@ -33,16 +37,24 @@ function LoginPage() {
             placeholder="Email"
             {...register("email", { required: true })}
           />
+
+          {errors.email && <p className="text-red-500">Email is required</p>}
+
           <Label htmlFor="password">Password</Label>
           <Input
             type="password"
             placeholder="Password"
             {...register("password", { required: true })}
           />
+
+          {errors.password && (
+            <p className="text-red-500">Password is required</p>
+          )}
+
           <Button>Sign</Button>
 
           <div className="flex justify-between my-4">
-            <p>Dont have an account</p>
+            <p className="mr-4">Dont have an account</p>
             <Link to="/register" className="font-bold">
               Register
             </Link>

@@ -51,7 +51,7 @@ export const signup = async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     // Generar un avatar encriptando el email con md5
-    const gravatar = `https://www.gravatar/com/avatar/${md5(email)}`;
+    const gravatar = `https://www.gravatar.com/avatar/${md5(email)}`;
 
     const result = await pool.query(
       "INSERT INTO users(name, email, password, gravatar) VALUES($1, $2, $3, $4) RETURNING *",

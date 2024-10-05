@@ -25,15 +25,13 @@ function RegisterPage() {
   const onSubmit = handleSubmit(async (data) => {
     const user = await signup(data);
 
-    if (user) {
-      navigate("/profile");
-    }
+    if (user) navigate("/tasks");
   });
 
   return (
     <Container className="h-[calc(100vh-10rem)] flex items-center justify-center">
       <Card>
-      {signupErrors &&
+        {signupErrors &&
           signupErrors.map((err) => (
             <p className="text-red-500 text-center">{err}</p>
           ))}
@@ -78,7 +76,7 @@ function RegisterPage() {
           <Button>Register</Button>
 
           <div className="flex justify-between my-4">
-            <p>Already have an count?</p>
+            <p className="mr-4">Already have an count?</p>
             <Link to="/login" className="font-bold">
               Login
             </Link>
