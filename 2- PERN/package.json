@@ -1,7 +1,7 @@
 {
   "name": "2--mern",
   "version": "1.0.0",
-  "description": "",
+  "description": "// npm init -y\r // npm install express\r // -> Para poder leer las cookies a traves de objetos de JavaScript.\r // Convierte la cabecera en una cookie\r // npm cookie-parser\r // -> comunicar que frontend pueden tener comunicación con nuestro servidor\r // npm install cors\r // -> Nos ayuda a ver por consola las peticiones que van llegando\r // npm install morgan\r // Driver de conexion con 'progrest'. Vamos a poder enviarle consultas sql al backend \r // npm install pg\r // -> nos ayuda a encriptar el correo para poder generar un avatar\r // npm install md5 \r // -> modulo para generar tokes desde backend y enviarlo al fronted y decirle que puede tener acceso a ese token\r // npm install jsonwebtoken\r // -> Es la forma de tener distintas rutas en el backend. Nos ayuda a manejar errores \r // npm install express-promise-router\r // ->\r // npm i bcrypt.js",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
