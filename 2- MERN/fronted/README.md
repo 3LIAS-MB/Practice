@@ -8,3 +8,4 @@ npm i js-cookie
 // para añadir condicionales a tailwind
 npm i tailwind-merge
 npm install react-icons --save
+npm i serve

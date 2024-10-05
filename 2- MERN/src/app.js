@@ -5,6 +5,8 @@ import cors from "cors";
 
 import taskRoutes from "./routes/task.routes.js";
 import authRoutes from "./routes/auth.routes.js";
+import { ORIGIN } from "./confing.js";
+import { pool } from "./db.js";
 
 const app = express();
 
@@ -12,8 +14,8 @@ const app = express();
 // El problema de las CORS
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    credentials: true
+    origin: ORIGIN,
+    credentials: true,
   })
 );
 // Nos ayuda a ver por consola las peticiones que van llegando
@@ -27,6 +29,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.get("/", (req, res) => res.json({ message: "welcome to my API XDD" }));
+app.get("/api/ping", async (req, res) => {
+  const result = await pool.query("SELECT NOW()");
+  return res.json(result.rows[0]);
+});
+
 app.use("/api", taskRoutes);
 app.use("/api", authRoutes);
 

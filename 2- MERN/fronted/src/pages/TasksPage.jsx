@@ -9,7 +9,7 @@ function TaskPage() {
     loadTasks();
   }, []);
 
-  if (tasks.lenght === 0) {
+  if (tasks.length == 0) {
     return (
       <div className="flex justify-center items-center h-[calc(100vh-10rem)]">
         <h1 className="text-3xl font-bold">No tasks found</h1>

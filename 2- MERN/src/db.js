@@ -1,13 +1,18 @@
-// -> pool no puede ser exportado ECMASCRIPT sino que necesita ser CommonJS
-// import { pool } from "./db.js";
 import pg from "pg";
+import {
+  PG_DATABASE,
+  PG_HOST,
+  PG_PASSWORD,
+  PG_PORT,
+  PG_USER,
+} from "./confing.js";
 
 export const pool = new pg.Pool({
-  port: 5432,
-  host: "localhost",
-  user: "postgres",
-  password: "S436339133xd",
-  database: "PERN-Fazt",
+  port: PG_PORT,
+  host: PG_HOST,
+  user: PG_USER,
+  password: PG_PASSWORD,
+  database: PG_DATABASE,
 });
 
-pool.on("connect", () => console.log("Database connect"));
+pool.on("connect", () => console.log("Database connected"));
