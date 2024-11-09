@@ -4,12 +4,15 @@ export const isAuth = (req, res, next) => {
   // contiene las cookies`, host, origin, etc...
   // console.log("Headers:", req.headers);
   
+  console.log('COOKIES')
+  console.log(req.cookies)
+
   // 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV...'
   const token = req.cookies.token;
 
   if (!token) {
     return res.status(401).json({
-      message: "No estás autorizado",
+      message: "No estás autorizado xd",
     });
   }
 
@@ -17,7 +20,7 @@ export const isAuth = (req, res, next) => {
   jwt.verify(token, "xyz123", (err, decoded) => {
     if (err) {
       return res.status(401).json({ 
-        message: "No estás autorizado",
+        message: "No estás autorizado xd",
       });
     }
 
