@@ -11,13 +11,12 @@ export const getTask = async (req, res) => {
   const result = await pool.query(`SELECT * FROM task WHERE id = $1`, [
     req.params.id,
   ]);
-  if (result.rows.length === 0) {
-    // result.rowCount
+  if (result.rows.length === 0) { // result.rowCount
     return res.status(404).json({
       messsage: "No existe una tarea con ese id",
     });
   }
-
+  // { id: 124, title: 'asd', description: 'aasd', user_id: 135 }
   return res.json(result.rows[0]);
 };
 

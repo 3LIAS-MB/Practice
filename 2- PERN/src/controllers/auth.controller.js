@@ -1,10 +1,25 @@
+// Usado para encriptar y comparar contraseñas de forma segura.
 import bcrypt from "bcrypt";
+// Proporciona una instancia de conexión a la base de datos PostgreSQL.
 import { pool } from "../db.js";
+// Función que genera un token JWT (JSON Web Token) para la autenticación.
 import { createAccessToken } from "../libs/jwt.js";
+// Función para generar un hash MD5 (usado aquí para  
+// generar un avatar a partir del correo electrónico).
 import md5 from "md5";
 
-// Ingresar
+const cookieOptions = {
+  httpOnly: true,  // Importante para seguridad
+  secure: true,    // Para HTTPS
+  sameSite: 'none', // Para peticiones cross-origin
+  maxAge: 24 * 60 * 60 * 1000
+};
+
+// INGRESAR
 export const signin = async (req, res) => {
+  // { email: 'xzuan@gmail.com', password: '123123' }
+  // console.log(req.body)
+
   const { email, password } = req.body;
 
   const result = await pool.query("SELECT * FROM users WHERE email = $1", [
@@ -17,6 +32,18 @@ export const signin = async (req, res) => {
     });
   }
 
+  // 'result' devuelve info sql incluyendo el obj row
+  // console.log(result.rows[0])
+  // {
+  //   id: 135,
+  //   name: 'zxuan',
+  //   password: '$2b$10$3uKsRU3iC28qQSWFobijLul4m4mYSrMpQdNyo7X0TKMWxlSB0b7mG',
+  //   email: 'xzuan@gmail.com',
+  //   create_at: 2024-11-08T22:53:06.367Z,
+  //   update_at: 2024-11-08T22:53:06.367Z,
+  //   gravatar: 'https://www.gravatar.com/avatar/d26c1631439d954d1ccc1ab231de6d73'
+  // }
+
   // 'compare' recibe primero el dato o string que yo
   // este pasando en este momento, por ej password,
   // la encripta y lo compara con otro
@@ -28,18 +55,10 @@ export const signin = async (req, res) => {
     });
   }
 
+  // Token codificado -> 'eyJhbGciOiJIUzI1NiIsIn...'
   const token = await createAccessToken({ id: result.rows[0].id });
 
-  res.cookie("token", token, {
-    // httpOnly: true,
-    // para que se puedan ver las cookies en el navegador
-    pecure: true,
-    secure: true,
-    // para decir que entre dominios se pueden consultar
-    sameSite: "none",
-    // tiempo que dura la cookie
-    maxAge: 24 * 60 * 60 * 1000,
-  });
+  res.cookie("token", token, cookieOptions);
 
   return res.json(result.rows[0]);
 };
@@ -61,12 +80,7 @@ export const signup = async (req, res, next) => {
     const token = await createAccessToken({ id: result.rows[0].id });
 
     // enviamos el token a través de la cookie o cabecera
-    res.cookie("token", token, {
-      // httpOnly: true,
-      secure: true,
-      sameSite: "none",
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
-    });
+    res.cookie("token", token, cookieOptions);
 
     // el cuerpo de la respuesta son los datos del usuario
     return res.json(result.rows[0]);

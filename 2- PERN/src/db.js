@@ -1,4 +1,5 @@
 import pg from "pg";
+
 import {
   PG_DATABASE,
   PG_HOST,
@@ -15,4 +16,3 @@ export const pool = new pg.Pool({
   database: PG_DATABASE,
 });
 
-pool.on("connect", () => console.log("Database connected"));

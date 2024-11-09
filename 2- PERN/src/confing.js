@@ -6,4 +6,4 @@ export const PG_USER = process.env.PG_USER || "postgres";
 export const PG_PASSWORD = process.env.PG_PASSWORD || "S436339133xd";
 export const PG_DATABASE = process.env.PG_DATABASE || "PERN-Fazt";
 
-export const ORIGIN = process.env.ORIGIN || "http://localhost:5173"
+export const ORIGIN = "http://localhost:5173"

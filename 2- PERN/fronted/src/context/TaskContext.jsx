@@ -1,6 +1,6 @@
 import { createContext, useState, useContext } from "react";
 import {
-  getAllTaskRequest,
+  getAllTasksRequest,
   deleteTaskRequest,
   createTaskRequest,
   getTaskRequest,
@@ -23,7 +23,7 @@ export function TaskProvider({ children }) {
   const [errors, setErrors] = useState([]);
 
   const loadTasks = async () => {
-    const res = await getAllTaskRequest();
+    const res = await getAllTasksRequest();
     setTasks(res.data);
   };
 
