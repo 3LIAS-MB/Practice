@@ -5,7 +5,7 @@ export const isAuth = (req, res, next) => {
   // console.log("Headers:", req.headers);
   
   console.log('COOKIES')
-  console.log(req.cookies)
+  console.log(req.cookies.token)
 
   // 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV...'
   const token = req.cookies.token;

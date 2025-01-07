@@ -1,11 +1,16 @@
+# @api = http://localhost:4000/api/tasks
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTM1LCJpYXQiOjE3MzExODgzNzQsImV4cCI6MTczMTI3NDc3NH0.biTWcHh9gfOLgrZbZM34nEKDbASSgt1qmFLTHVauHVA
+
 ### OBTENER TAREAS
 GET http://localhost:3000/api/tasks
+Authorization: {{token}}
 
 ### TAREA EN ESPECIFICO 
 GET http://localhost:3000/api/tasks/1
 
 ### CREAR UNA TAREA
 POST http://localhost:3000/api/tasks
+Authorization: {{token}}
 Content-Type: application/json
 
 {
@@ -15,6 +20,7 @@ Content-Type: application/json
 
 ### MODIFICAR/ACTUALIZAR UNA TAREA
 PUT http://localhost:3000/api/tasks/56
+Authorization: {{token}}
 Content-Type: application/json
 
 {
@@ -24,3 +30,4 @@ Content-Type: application/json
 
 ### BORRAR UNA TAREA
 DELETE http://localhost:3000/api/tasks/55
+Authorization: {{token}}
